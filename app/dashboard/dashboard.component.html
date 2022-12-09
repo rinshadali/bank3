@@ -1,1 +1,35 @@
-<p>dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome {{user}}</h1>
+   <div class="mt-5">
+        <a routerLink="/transaction">View Transaction history</a>
+    </div>
+   <form (ngSubmit)="deposit()">
+       <div class="container w-50 p-3 border" style="border-radius: 20px;">
+        <h2 class="text-center text-light">DEPOSIT</h2><br>
+         <input name="acno" [(ngModel)]="acno" type="text" class="form-control " placeholder="data"><br>
+         <input name="psw" [(ngModel)]="psw" type="password" class="form-control" placeholder="Enter the password"><br>
+         <input name="amount" [(ngModel)]="amnt" type="text" class="form-control" placeholder="Deposit"><br>
+             <button type="submit" class="btn btn-outline-success">Deposit</button><br>
+           </div>
+        </form>
+           <br>
+    <form (ngSubmit)="withdrawal()">
+           <div class="container w-50 p-3 border" style="border-radius: 20px;">
+            <h2 class="text-center text-light">WITHDRAWAL</h2><br>
+             <input name="acno1" [(ngModel)]="acno1" type="text" class="form-control " placeholder="acno"><br>
+             <input name="psw1" [(ngModel)]="psw1" type="password" class="form-control" placeholder="Enter the password"><br>
+             <input name="amount1" [(ngModel)]="amnt1" type="text" class="form-control" placeholder="Withdrawal"><br>
+                 <button type="submit" class="btn btn-outline-success">Deposit</button><br>
+               </div>
+   </form>
+
+</body>
+</html>
