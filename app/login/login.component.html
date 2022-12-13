@@ -8,11 +8,13 @@
 </head>
 <body>
     <h1>Your Perfect Banking Partner</h1>
-   <form (ngSubmit)="login()">
+   <form (ngSubmit)="login()" [formGroup]="loginForm">
            <div class="container w-25 p-3 border" style="border-radius: 20px;">
         <h2 class="text-center text-light">Login</h2><br>
-         <input id="acid" name="acno" [(ngModel)]="acno" type="text" class="form-control " [placeholder]="data"><br>
-         <input id="pid" name="psw" [(ngModel)]="psw" type="password" class="form-control" placeholder="Enter the password"><br>
+         <input id="acid" name="acno" formControlName="acno" type="text" class="form-control " [placeholder]="data"><br>
+         <p class="text-danger" *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">invalid AcNumber</p>
+         <input id="pid" name="psw" formControlName="psw" type="password" class="form-control" placeholder="Enter the password"><br>
+         <p class="text-danger" *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">Invalid password</p>
              <button type="submit" class="btn btn-outline-success">Login</button><br>
             <a routerLink="register">Register now</a>
          

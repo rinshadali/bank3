@@ -11,23 +11,27 @@
    <div class="mt-5">
         <a routerLink="/transaction">View Transaction history</a>
     </div>
-   <form (ngSubmit)="deposit()">
+   <form (ngSubmit)="deposit()" [formGroup]="depositForm">
        <div class="container w-50 p-3 border" style="border-radius: 20px;">
         <h2 class="text-center text-light">DEPOSIT</h2><br>
-         <input name="acno" [(ngModel)]="acno" type="text" class="form-control " placeholder="data"><br>
-         <input name="psw" [(ngModel)]="psw" type="password" class="form-control" placeholder="Enter the password"><br>
-         <input name="amount" [(ngModel)]="amnt" type="text" class="form-control" placeholder="Deposit"><br>
+         <input name="acno" formControlName="acno" type="text" class="form-control " placeholder="Acno"><br>
+         <p class="text-danger" *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched">invalid AcNumber</p>
+         <input name="psw" formControlName="psw" type="password" class="form-control" placeholder="Enter the password"><br>
+         <p class="text-danger" *ngIf="this.depositForm.get('psw')?.errors && this.depositForm.get('psw')?.touched">invalid password</p>
+         <input name="amount" formControlName="amnt" type="text" class="form-control" placeholder="Deposit"><br>
              <button type="submit" class="btn btn-outline-success">Deposit</button><br>
            </div>
         </form>
            <br>
-    <form (ngSubmit)="withdrawal()">
+    <form (ngSubmit)="withdrawal()" [formGroup]="withdrawalForm">
            <div class="container w-50 p-3 border" style="border-radius: 20px;">
             <h2 class="text-center text-light">WITHDRAWAL</h2><br>
-             <input name="acno1" [(ngModel)]="acno1" type="text" class="form-control " placeholder="acno"><br>
-             <input name="psw1" [(ngModel)]="psw1" type="password" class="form-control" placeholder="Enter the password"><br>
-             <input name="amount1" [(ngModel)]="amnt1" type="text" class="form-control" placeholder="Withdrawal"><br>
-                 <button type="submit" class="btn btn-outline-success">Deposit</button><br>
+             <input name="acno1" formControlName="acno1" type="text" class="form-control " placeholder="acno"><br>
+             <p class="text-danger" *ngIf="this.withdrawalForm.get('acno1')?.errors && this.withdrawalForm.get('acno1')?.touched">invalid Acno</p>
+             <input name="psw1" formControlName="psw1" type="password" class="form-control" placeholder="Enter the password"><br>
+             <p class="text-danger" *ngIf="this.withdrawalForm.get('psw1')?.errors && this.withdrawalForm.get('psw1')?.touched">invalid password</p>
+             <input name="amount1" formControlName="amnt1" type="text" class="form-control" placeholder="Withdrawal"><br>
+                 <button type="submit" class="btn btn-outline-success">Withdraw</button><br>
                </div>
    </form>
 
