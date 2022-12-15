@@ -40,11 +40,19 @@ Angular services
 ng g s servicename
 
 
-angular directives
+angular directives - are used to manage DOM in angular
 -------------------
 1-structural directives - to handle structured datas in view(html) of a component
+to manage structure of DOM
         -ngFor - can directly apply in html to access elements from array
         -ngIf 
+
+2-component directive
+
+3-Attribute directive - used to apply attributes to DOM
+        1.ngClass
+
+
 
 Form validation in Angular
 --------------------------
@@ -77,3 +85,18 @@ local Storage in Angular
 -store  - localStorage.setItem()
 -access - localStorage.getItem()
 -delete - localStorage.removeItem()
+
+
+parent child Components communication in Angular
+-------------------------------------------------
+write here....
+
+
+
+
+Date in Angular
+---------------
+
+Date - class
+
+-Create an object of class Date to accss Date and Time
